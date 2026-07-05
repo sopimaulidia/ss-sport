@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shoppie-Sport – Perlengkapan Olahraga Terpercaya</title>
+    <meta name="description" content="Shoppie-Sport menyediakan sepatu, pakaian, dan peralatan olahraga berkualitas dengan harga terjangkau.">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- =========================================================
+         GOOGLE ANALYTICS (DUMMY / SIMULASI)
+         Ganti "G-XXXXXXXXXX" dengan Measurement ID GA4 asli saat deploy.
+         Metrik yang akan dipantau melalui GA4:
+           1. Bounce rate & engagement time  – seberapa cepat pengunjung
+              meninggalkan halaman tanpa interaksi.
+           2. Conversion rate                – persentase pengunjung yang
+              menyelesaikan checkout (event "purchase").
+           3. Add-to-cart rate                – rasio klik "+ Keranjang"
+              dibanding total kunjungan produk (event "add_to_cart").
+           4. Traffic source & page views     – sumber trafik dan halaman
+              yang paling banyak dikunjungi.
+           5. Search terms                    – kata kunci yang paling
+              sering dicari di kolom pencarian produk (event "search").
+         Karena ini proyek simulasi/tugas, fungsi gtag() di bawah
+         HANYA mencetak log ke console, tidak mengirim data ke server GA.
+    ========================================================= -->
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){ dataLayer.push(arguments); console.log('[GA dummy event]', arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX'); // Dummy Measurement ID
+    </script>
+</head>
+<body>
+
+<!-- ── NAVBAR ── -->
+<nav>
+    <a href="#home" class="logo">SHOPPIE<span>-SPORT</span></a>
+
+    <ul class="nav-links">
+        <li><a href="#home">Beranda</a></li>
+        <li><a href="#products">Produk</a></li>
+        <li><a href="#about">Tentang</a></li>
+        <li><a href="#services">Layanan</a></li>
+        <li><a href="#testimonials">Testimoni</a></li>
+        <li><a href="#contact">Kontak</a></li>
+    </ul>
+
+    <div class="nav-right">
+        <button class="cart-btn" id="cart-icon" title="Keranjang" aria-label="Keranjang belanja">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007z"/>
+            </svg>
+            <span class="cart-badge" id="cart-badge">0</span>
+        </button>
+        <button class="hamburger" id="menu-button" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</nav>
+
+<div id="mobile-menu">
+    <ul>
+        <li><a href="#home">Beranda</a></li>
+        <li><a href="#products">Produk</a></li>
+        <li><a href="#about">Tentang</a></li>
+        <li><a href="#services">Layanan</a></li>
+        <li><a href="#testimonials">Testimoni</a></li>
+        <li><a href="#contact">Kontak</a></li>
+    </ul>
+</div>
+
+<!-- ── HERO ── -->
+<section id="home">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+        <div class="hero-text">
+            <p class="hero-eyebrow">Koleksi Sport 2026</p>
+            <h1 class="hero-title">GEAR UP<br>YOUR <em>GAME</em></h1>
+            <p class="hero-desc">
+                Sepatu, apparel, dan peralatan olahraga untuk menunjang performa terbaikmu —
+                di lapangan, di gym, atau di jalanan. Kualitas premium, harga bersahabat.
+            </p>
+            <div class="hero-ctas">
+                <a href="#products" class="btn-primary">Belanja Sekarang</a>
+                <a href="#about" class="btn-outline">Tentang Kami</a>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="hero-img-frame">
+                <img src="image/GAMBAR 1.jpg" alt="Perlengkapan Olahraga Shoppie-Sport">
+                <div class="hero-badge">✦ Kualitas Terjamin</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── STATS ── -->
+<div class="stats-strip">
+    <div class="stats-inner">
+        <div class="stat"><div class="stat-number">1000+</div><div class="stat-label">Pelanggan Puas</div></div>
+        <div class="stat"><div class="stat-number">12+</div><div class="stat-label">Produk Tersedia</div></div>
+        <div class="stat"><div class="stat-number">4.8★</div><div class="stat-label">Rating Produk</div></div>
+        <div class="stat"><div class="stat-number">1-3 Hari</div><div class="stat-label">Pengiriman Cepat</div></div>
+    </div>
+</div>
+
+<!-- ── PRODUCTS ── -->
+<section id="products">
+    <div class="section-header reveal-on-scroll">
+        <p class="section-eyebrow">Katalog Kami</p>
+        <h2 class="section-title">Produk Unggulan</h2>
+        <p class="section-desc">Cari berdasarkan nama, kategori, atau rentang harga untuk menemukan gear yang paling cocok untukmu.</p>
+    </div>
+
+    <!-- Filter & Search -->
+    <div class="filter-bar reveal-on-scroll">
+        <input type="text" id="search-input" class="filter-search" placeholder="🔍 Cari produk berdasarkan nama...">
+        <select id="category-filter" class="filter-select">
+            <option value="all">Semua Kategori</option>
+            <option value="Sepatu">Sepatu</option>
+            <option value="Pakaian">Pakaian</option>
+            <option value="Peralatan">Peralatan</option>
+            <option value="Aksesoris">Aksesoris</option>
+        </select>
+        <select id="price-filter" class="filter-select">
+            <option value="all">Semua Harga</option>
+            <option value="under100">Di bawah Rp 100.000</option>
+            <option value="100to250">Rp 100.000 - Rp 250.000</option>
+            <option value="250to500">Rp 250.000 - Rp 500.000</option>
+            <option value="above500">Di atas Rp 500.000</option>
+        </select>
+        <button type="button" id="filter-reset" class="filter-reset-btn">Reset Filter</button>
+    </div>
+
+    <div class="products-grid" id="products-grid"></div>
+    <p id="products-empty">Produk tidak ditemukan. Coba ubah kata kunci atau filter Anda.</p>
+</section>
+
+<!-- ── ABOUT ── -->
+<section id="about">
+    <div class="about-inner">
+        <div class="about-img reveal-on-scroll">
+            <img src="image/GAMBAR 3.jpg" alt="Tentang Shoppie-Sport">
+        </div>
+        <div class="about-text reveal-on-scroll">
+            <p class="section-eyebrow">Cerita Kami</p>
+            <h2 class="section-title">Ditujukan untuk Setiap Atlet</h2>
+            <p>Shoppie-Sport adalah toko perlengkapan olahraga lokal yang berdedikasi menghadirkan produk berkualitas tinggi dengan harga terjangkau, untuk siapa pun yang aktif bergerak.</p>
+            <p>Kami memilih setiap produk dengan cermat — mulai dari sepatu, apparel, hingga peralatan latihan — agar Anda dapat tampil maksimal dalam setiap aktivitas olahraga.</p>
+            <p>Misi kami sederhana: mendukung gaya hidup aktif masyarakat Indonesia dengan gear yang tepercaya dan terjangkau.</p>
+            <a href="#products" class="btn-primary" style="margin-top:1rem; display:inline-block;">Lihat Produk</a>
+        </div>
+    </div>
+</section>
+
+<!-- ── SERVICES ── -->
+<section id="services">
+    <div class="section-header reveal-on-scroll">
+        <p class="section-eyebrow">Keunggulan Kami</p>
+        <h2 class="section-title">Layanan Kami</h2>
+        <p class="section-desc">Kami tidak hanya menjual produk, kami memberikan pengalaman belanja terbaik.</p>
+    </div>
+    <div class="services-grid">
+        <div class="service-card reveal-on-scroll">
+            <div class="service-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12"/>
+                </svg>
+            </div>
+            <h3>Pengiriman Cepat</h3>
+            <p>Produk Anda kami kemas dengan aman dan dikirim dalam 1–3 hari kerja ke seluruh Indonesia.</p>
+        </div>
+        <div class="service-card reveal-on-scroll">
+            <div class="service-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/>
+                </svg>
+            </div>
+            <h3>Garansi Produk</h3>
+            <p>Setiap pembelian dilengkapi garansi kepuasan. Kami siap membantu jika ada masalah dengan produk Anda.</p>
+        </div>
+        <div class="service-card reveal-on-scroll">
+            <div class="service-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 01-.825-.242m9.345-8.334a2.126 2.126 0 00-.476-.095 48.64 48.64 0 00-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0011.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155"/>
+                </svg>
+            </div>
+            <h3>Dukungan 24/7</h3>
+            <p>Tim customer service kami siap membantu Anda melalui WhatsApp, email, atau media sosial kapan saja.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ── TESTIMONIALS ── -->
+<section id="testimonials">
+    <div class="section-header reveal-on-scroll">
+        <p class="section-eyebrow">Kata Mereka</p>
+        <h2 class="section-title">Pelanggan Setia Kami</h2>
+        <p class="section-desc">Kepuasan pelanggan adalah prioritas utama kami.</p>
+    </div>
+    <div class="testimonials-grid">
+        <div class="testimonial-card reveal-on-scroll">
+            <div class="testimonial-stars">★★★★★</div>
+            <p>Sepatu larinya sangat nyaman dipakai untuk latihan harian, empuk dan ringan. Pengiriman juga cepat!</p>
+            <p class="testimonial-author">— Amanda, Jakarta</p>
+        </div>
+        <div class="testimonial-card reveal-on-scroll">
+            <div class="testimonial-stars">★★★★★</div>
+            <p>Jersey bolanya adem dan tidak gampang bau meski dipakai latihan lama. Harganya juga sangat worth it.</p>
+            <p class="testimonial-author">— Tina Andriani, Surabaya</p>
+        </div>
+        <div class="testimonial-card reveal-on-scroll">
+            <div class="testimonial-stars">★★★★★</div>
+            <p>Dumbbell set-nya kualitas bagus dan pas untuk latihan di rumah. Pelayanan ramah dan fast respon!</p>
+            <p class="testimonial-author">— Diana Artika, Bandung</p>
+        </div>
+    </div>
+</section>
+
+<!-- ── CONTACT ── -->
+<section id="contact">
+    <div class="contact-inner">
+        <div class="section-header reveal-on-scroll" style="margin-bottom:3rem;">
+            <p class="section-eyebrow">Hubungi Kami</p>
+            <h2 class="section-title">Ada Pertanyaan?</h2>
+        </div>
+        <div class="contact-grid">
+            <div class="contact-info reveal-on-scroll">
+                <h3>Info Kontak</h3>
+                <div class="contact-detail">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/></svg>
+                    <p>hello@shoppiesport.id</p>
+                </div>
+                <div class="contact-detail">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
+                    <p>+62 812 3456 7890</p>
+                </div>
+            </div>
+            <form class="contact-form reveal-on-scroll" id="contact-form">
+                <input type="text" id="name" placeholder="Nama Lengkap" required>
+                <input type="email" id="email" placeholder="Alamat Email" required>
+                <input type="tel" id="phone" placeholder="Nomor Telepon (Opsional)">
+                <textarea id="message" rows="5" placeholder="Pesan Anda..." required></textarea>
+                <button type="submit">Kirim Pesan</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+    <div class="footer-grid">
+        <div class="footer-about">
+            <a href="#home" class="logo">SHOPPIE<span style="color:var(--primary)">-SPORT</span></a>
+            <p>Perlengkapan olahraga terpercaya untuk mendukung gaya hidup aktifmu — sepatu, apparel, dan peralatan latihan dalam satu tempat.</p>
+        </div>
+        <div class="footer-col">
+            <h4>Navigasi</h4>
+            <ul>
+                <li><a href="#home">Beranda</a></li>
+                <li><a href="#products">Produk</a></li>
+                <li><a href="#about">Tentang</a></li>
+                <li><a href="#contact">Kontak</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Kategori</h4>
+            <ul>
+                <li><a href="#products">Sepatu</a></li>
+                <li><a href="#products">Pakaian</a></li>
+                <li><a href="#products">Peralatan</a></li>
+                <li><a href="#products">Aksesoris</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Bantuan</h4>
+            <ul>
+                <li><a href="#contact">Hubungi Kami</a></li>
+                <li><a href="#services">Kebijakan Pengiriman</a></li>
+                <li><a href="#services">Garansi Produk</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 Shoppie-Sport. Hak Cipta Dilindungi Undang-Undang.</p>
+        <div class="footer-socials">
+            <a href="#">Instagram</a>
+            <a href="#">TikTok</a>
+            <a href="#">WhatsApp</a>
+        </div>
+    </div>
+</footer>
+
+<!-- ── PRODUCT DETAIL MODAL ── -->
+<div class="modal" id="detail-modal">
+    <div class="modal-box">
+        <button class="modal-close">&times;</button>
+        <div class="detail-grid">
+            <img id="detail-img" src="" alt="Detail produk">
+            <div>
+                <p id="detail-category"></p>
+                <h2 id="detail-name"></h2>
+                <p id="detail-desc"></p>
+                <span id="detail-price"></span>
+                <div class="detail-qty-row">
+                    <span class="section-label" style="margin:0;font-size:0.85rem;text-transform:uppercase;color:var(--gray);font-family:'Inter',sans-serif;">Jumlah</span>
+                    <div class="qty-stepper">
+                        <button type="button" class="qty-btn" id="detail-qty-minus">−</button>
+                        <input type="number" id="detail-qty" value="1" min="1" style="width:44px;text-align:center;border:1px solid var(--light-gray);border-radius:4px;padding:0.4rem;">
+                        <button type="button" class="qty-btn" id="detail-qty-plus">+</button>
+                    </div>
+                </div>
+                <button class="btn-primary" id="detail-add-btn" style="width:100%">+ Tambah ke Keranjang</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ── CART MODAL ── -->
+<div class="modal" id="cart-modal">
+    <div class="modal-box">
+        <button class="modal-close">&times;</button>
+        <h2 class="modal-title">Keranjang Belanja</h2>
+        <div id="cart-items">
+            <p>Keranjang Anda kosong.</p>
+        </div>
+        <div class="cart-total-row">
+            <span class="cart-total-label">Total</span>
+            <span id="cart-total">Rp 0</span>
+        </div>
+        <div class="cart-actions">
+            <button class="btn-danger" id="clear-cart-btn">Kosongkan</button>
+            <button class="btn-primary" id="checkout-btn">Checkout</button>
+        </div>
+    </div>
+</div>
+
+<!-- ── CHECKOUT MODAL ── -->
+<div class="modal" id="checkout-modal">
+    <div class="modal-box">
+        <button class="modal-close">&times;</button>
+        <h2 class="modal-title">Checkout</h2>
+
+        <div class="checkout-summary" id="checkout-summary"></div>
+
+        <form id="checkout-form" novalidate>
+            <p class="section-label">Informasi Pengiriman</p>
+            <div class="checkout-field">
+                <label>Nama Lengkap</label>
+                <input type="text" id="shipping-name" required>
+                <span class="field-error" id="name-error"></span>
+            </div>
+            <div class="checkout-field">
+                <label>Alamat Lengkap</label>
+                <textarea id="shipping-address" rows="3" required></textarea>
+                <span class="field-error" id="address-error"></span>
+            </div>
+            <div class="checkout-field">
+                <label>Nomor Telepon</label>
+                <input type="tel" id="shipping-phone" required>
+                <span class="field-error" id="phone-error"></span>
+            </div>
+
+            <p class="section-label">Metode Pembayaran</p>
+            <p style="font-size:0.78rem;color:var(--gray);margin-bottom:0.75rem;">
+                Simulasi payment gateway (Midtrans/Xendit dummy) — tidak ada transaksi nyata yang diproses.
+            </p>
+            <div class="payment-options">
+                <div class="payment-option" data-method="Transfer Bank (Midtrans Dummy)">
+                    <div style="font-size:1.5rem;margin-bottom:.5rem">🏦</div>
+                    <div style="font-weight:700;color:var(--black);margin-bottom:.25rem">Transfer Bank</div>
+                    <div style="font-size:0.75rem">via Midtrans (simulasi)</div>
+                </div>
+                <div class="payment-option" data-method="E-Wallet (Xendit Dummy)">
+                    <div style="font-size:1.5rem;margin-bottom:.5rem">💳</div>
+                    <div style="font-weight:700;color:var(--black);margin-bottom:.25rem">E-Wallet</div>
+                    <div style="font-size:0.75rem">via Xendit (simulasi)</div>
+                </div>
+                <div class="payment-option" data-method="COD">
+                    <div style="font-size:1.5rem;margin-bottom:.5rem">🚚</div>
+                    <div style="font-weight:700;color:var(--black);margin-bottom:.25rem">COD</div>
+                    <div style="font-size:0.75rem">Bayar di tempat</div>
+                </div>
+            </div>
+            <input type="hidden" id="payment-method">
+            <span class="field-error" id="payment-error"></span>
+            <button type="submit" class="btn-primary" style="width:100%;margin-top:1rem">Konfirmasi Pesanan</button>
+        </form>
+    </div>
+</div>
+
+<!-- ── MESSAGE MODAL ── -->
+<div class="modal" id="message-modal">
+    <div class="modal-box" style="max-width:420px;text-align:center">
+        <button class="modal-close">&times;</button>
+        <div class="message-modal-body">
+            <h3 id="message-modal-title"></h3>
+            <p id="message-modal-body"></p>
+        </div>
+        <button class="btn-primary" id="message-modal-close-btn" style="margin-top:1.5rem">Tutup</button>
+    </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
